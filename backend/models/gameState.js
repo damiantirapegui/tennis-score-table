@@ -1,5 +1,3 @@
-const getGameState = require("../controllers/getGameState");
-
 // Score table
 let gameState = {
   player1: { name: "player1", score: 0 },
@@ -9,7 +7,7 @@ let gameState = {
 
 const scoreTennisTerm = (score) => {
   const scoreTerm = ["Love", "Fifteen", "Thirty", "Forty", "Game"];
-  return scoreTerm[score];
+  return scoreTerm[score] || "invalid";
 };
 
 const getTennisScore = () => {
