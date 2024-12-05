@@ -1,4 +1,4 @@
-const { gameState } = require("../models/gameState");
+const { gameState, resetGameState } = require("../models/gameState");
 
 const updateScore = (req, res) => {
   const { player } = req.body;
@@ -22,6 +22,8 @@ const updateScore = (req, res) => {
         score1 > score2
           ? `${gameState.player1.name} wins`
           : score2 > score1`${gameState.player2.name} wins`;
+
+      return res.json({ message: "Game Over", gameState });
     } else if (score1 === score2) {
       // If they both av equal score thans it's a deuce
       gameState.status = " Deuce";
