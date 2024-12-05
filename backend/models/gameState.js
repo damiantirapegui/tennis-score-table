@@ -1,8 +1,22 @@
+const getGameState = require("../controllers/getGameState");
+
 // Score table
 let gameState = {
   player1: { name: "player1", score: 0 },
   player2: { name: "player2", score: 0 },
   status: "ongoing",
+};
+
+const scoreTennisTerm = (score) => {
+  const scoreTerm = ["Love", "Fifteen", "Thirty", "Forty", "Game"];
+  return scoreTerm[score];
+};
+
+const getTennisScore = () => {
+  return {
+    player1: scoreTennisTerm(gameState.player1.score),
+    player2: scoreTennisTerm(gameState.player2.score),
+  };
 };
 
 // Reset game from /reset endpoint
