@@ -27,4 +27,4 @@ const resetGameState = () => {
   console.log("Reset successfully");
 };
 
-module.exports = { gameState, resetGameState };
+module.exports = { gameState, resetGameState, getTennisScore };
