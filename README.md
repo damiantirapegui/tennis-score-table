@@ -36,7 +36,8 @@ Tennis Score Tracker is an application that simulates a tennis match and keeps t
 
 ```bash
 git clone https://github.com/damiantirapegui/tennis-score-table.git
-cd tennis-score-tracker
+cd tennis
+code .
 ```
 
 ---
