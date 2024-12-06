@@ -2,6 +2,7 @@ import axios from "axios";
 
 const URL = import.meta.env.VITE_API_URL;
 
+//Get latest gamestate change
 export const fetchGameState = async () => {
   try {
     const response = await axios.get(`${URL}api/game`);
@@ -11,6 +12,7 @@ export const fetchGameState = async () => {
   }
 };
 
+// This function send the scores to gamestate
 export const addPoint = async (player) => {
   try {
     const response = await axios.post(`${URL}api/score`, { player });
@@ -20,6 +22,7 @@ export const addPoint = async (player) => {
   }
 };
 
+// Restarts the game
 export const resetGame = async () => {
   try {
     const response = await axios.post(`${URL}api/reset`);
