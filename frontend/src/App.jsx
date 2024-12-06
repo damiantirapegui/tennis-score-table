@@ -1,50 +1,46 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
-import axios from "axios";
-
-const URL = import.meta.env.VITE_API_URL;
+import { addPoint, fetchGameState, resetGame } from "./utils/game";
 
 function App() {
   const [gameState, setGameState] = useState(null);
+  const [listner, setListner] = useState(false);
+
+  fetchGameState();
 
   useEffect(() => {
-    const fetchGameState = async () => {
-      try {
-        const response = await axios.get(`${URL}api/game`);
-        setGameState(response.data);
-      } catch (error) {
-        console.error("Error fetching game state:", error.message);
-      }
-    };
-    fetchGameState();
+    (async () => {
+      const result = await fetchGameState();
+      setGameState(result);
+    })();
   }, []);
 
-  const addPoint = async (player) => {
-    try {
-      const response = await axios.post(`${URL}api/score`, { player });
-      setGameState(response.data);
-    } catch (error) {
-      console.error("Error updating score: ", error);
-    }
+  useEffect(() => {
+    (async () => {
+      const result = await fetchGameState();
+      setGameState(result);
+    })();
+  }, [listner]);
+
+  const HandleAddPoint = async (player) => {
+    await addPoint(player);
+    setListner((e) => !e);
+  };
+
+  const handleResetGame = async () => {
+    const result = await resetGame();
+    setGameState(result);
   };
 
   if (!gameState) {
     return <div>Loading...</div>;
   }
 
-  const resetGame = async () => {
-    try {
-      const response = await axios.post(`${URL}api/reset`);
-      setGameState(response.data.gameState);
-    } catch (error) {
-      console.error("Error resetting game", error);
-    }
-  };
   return (
     <>
       <div className="tennis-score-table-container">
         <div className="reset-game-container">
-          <button className="--button" onClick={resetGame}>
+          <button className="--button" onClick={handleResetGame}>
             RESET GAME
           </button>
         </div>
@@ -77,14 +73,14 @@ function App() {
         <div className="play-button-container">
           <button
             className="--button"
-            onClick={() => addPoint("player1")}
+            onClick={() => HandleAddPoint("player1")}
             disabled={gameState.status.includes("wins")}
           >
             Add Point
           </button>
           <button
             className="--button"
-            onClick={() => addPoint("player2")}
+            onClick={() => HandleAddPoint("player2")}
             disabled={gameState.status.includes("wins")}
           >
             Add Point
