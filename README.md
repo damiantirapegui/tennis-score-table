@@ -1,5 +1,7 @@
 # Tennis Score Tracker
 
+![Tennis-Score-Board](/frontend/public/Printscreen.png)
+
 Tennis Score Tracker is an application that simulates a tennis match and keeps track of scores and status using official tennis terms like "Love," "Fifteen," "Deuce," and more. The application consists of a **frontend** and a **backend**.
 
 ## Functions
