@@ -13,6 +13,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 20px;
 }
 
 .winner {
@@ -23,7 +24,7 @@
 
 .score-container {
   display: flex;
-  /* flex-direction: column; */
+  height: 50%;
   justify-content: center;
   align-items: center;
   gap: 10rem;
@@ -32,24 +33,30 @@
 .player {
   color: white;
   text-align: center;
+  height: 100%;
 }
 
 .score-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 2rem;
   padding: 0 20px;
   border: 1px solid white;
+  height: 70%;
 }
 
 h1 {
   font-family: var(--font-gaming-primary);
   font-size: 60px;
+  margin: 0;
 }
 
 h2 {
   font-family: var(--font-gaming-primary);
   font-size: 50px;
+  margin: 0;
 }
 
 .advantage {
