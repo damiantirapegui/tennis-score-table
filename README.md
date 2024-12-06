@@ -32,7 +32,7 @@ Tennis Score Tracker is an application that simulates a tennis match and keeps t
 ### Prerequisites
 
 - Node.js installed on your computer.
-- A package manager like **npm** eller **yarn**.
+- A package manager like **npm** or **yarn**.
 
 ### Clone Project
 
@@ -79,7 +79,7 @@ create **.env** file and add this variable **PORT=8000**
 ## Test the application from the frontend
 
 Before testing you'll need to activate the backend server.
-**Recomended to have 2 terminals open. One for the frontend och one for the backend.**
+**Recomended to have 2 terminals open. One for the frontend and one for the backend.**
 
 ### Open terminal for frontend
 
