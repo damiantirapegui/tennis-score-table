@@ -1,42 +1,72 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap");
+
+:root {
+  --font-gaming-primary: "Silkscreen", cursive;
+  --font-gaming-secondary: "Alumni Sans", sans-serif;
+}
+
+.tennis-score-table-container {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.winner {
+  color: limegreen;
+  font-size: 75px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.score-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player {
+  color: white;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid white;
 }
 
-.card {
-  padding: 2em;
+h1 {
+  font-family: var(--font-gaming-primary);
+  font-size: 60px;
 }
 
-.read-the-docs {
-  color: #888;
+h2 {
+  font-family: var(--font-gaming-primary);
+  font-size: 50px;
+}
+
+.advantage {
+  color: limegreen;
+}
+
+.play-button-container {
+  display: flex;
+  padding-top: 20px;
+  gap: 20rem;
+}
+
+.--button {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 35px;
+  padding: 15px 45px;
+  font-family: var(--font-gaming-secondary);
 }

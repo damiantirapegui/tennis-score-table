@@ -1,8 +1,8 @@
 const {
   gameState,
-  resetGameState,
+
   getTennisScore,
-} = require("../models/gameState");
+} = require("../utils/gameState");
 
 const updateScore = (req, res) => {
   const { player } = req.body;
@@ -29,8 +29,17 @@ const updateScore = (req, res) => {
 
       return res.json({
         message: "Game Over",
-        ...gameState,
-        scoreTerm: getTennisScore(),
+        player1: {
+          name: gameState.player1.name,
+          score: gameState.player1.score,
+          scoreTerm: getTennisScore().player1,
+        },
+        player2: {
+          name: gameState.player2.name,
+          score: gameState.player2.score,
+          scoreTerm: getTennisScore().player2,
+        },
+        status: gameState.status,
       });
     } else if (score1 === score2) {
       // If they both av equal score thans it's a deuce
@@ -42,7 +51,19 @@ const updateScore = (req, res) => {
     }
   }
 
-  res.json({ ...gameState, scoreTerm: getTennisScore() });
+  res.json({
+    player1: {
+      name: gameState.player1.name,
+      score: gameState.player1.score,
+      scoreTerm: getTennisScore().player1,
+    },
+    player2: {
+      name: gameState.player2.name,
+      score: gameState.player2.score,
+      scoreTerm: getTennisScore().player2,
+    },
+    status: gameState.status,
+  });
 };
 
 module.exports = updateScore;

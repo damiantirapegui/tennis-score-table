@@ -1,4 +1,4 @@
-const { gameState, getTennisScore } = require("../models/gameState");
+const { gameState, getTennisScore } = require("../utils/gameState");
 
 const getGameState = (req, res) => {
   const tennisScore = getTennisScore();
